@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       <input type="email" onChange={(event) => setEmail(event.target.value)} value={email} placeholder="Email" />
       <input type="password" onChange={(event) => setPassword(event.target.value)} value={password} placeholder="Password" />
-      <button type="button" onClick={() => { dispatch(loginAction()); }}>LOGIN</button>
-      <button type="button" onClick={() => { dispatch(logoutAction()); }}>LOGOUT</button>
+      <button type="button" onClick={() => { dispatch(loginAction({ email, password })); }}>LOGIN</button>
+      <button type="button" onClick={() => { dispatch(logoutAction('Logged out')); }}>LOGOUT</button>
       <div>{login}</div>
     </div>
   );
