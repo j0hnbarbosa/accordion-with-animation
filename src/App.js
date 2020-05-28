@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginAction, logoutAction } from './redux/actions';
 import './App.css';
 
 function App() {
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+
+  const login = useSelector((state) => state.login);
+  const dispatch = useDispatch();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="email" onChange={(event) => setEmail(event.target.value)} value={email} placeholder="Email" />
+      <input type="password" onChange={(event) => setPassword(event.target.value)} value={password} placeholder="Password" />
+      <button type="button" onClick={() => { dispatch(loginAction()); }}>LOGIN</button>
+      <button type="button" onClick={() => { dispatch(logoutAction()); }}>LOGOUT</button>
+      <div>{login}</div>
     </div>
   );
 }
