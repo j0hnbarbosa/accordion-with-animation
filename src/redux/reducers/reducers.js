@@ -5,6 +5,6 @@ export const loginReducers = (state = false, action) => {
     case 'LOG_OUT':
       return action.payload;
     default:
-      return 'DEFAULT NADA AQUI';
+      return 'You have not executed any actions';
   }
 };
