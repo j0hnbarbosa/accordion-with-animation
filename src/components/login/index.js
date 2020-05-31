@@ -1,44 +1,72 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginAction, logoutAction } from '../../redux/actions';
+import React from 'react';
 import {
-  Container, Input, Button, Rotate,
+  Background,
+  Button,
+  Card,
+  Checkbox,
+  Container,
+  ContainerInput,
+  ContainerRemember,
+  ContainerSpace,
+  FooterCard,
+  Input,
+  Link,
+  Title,
+  Icon,
+  ContainerCardFooter,
+  InsideFooter,
 } from './styles';
 
-const Login = () => {
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+const Login = () => (
+  <Container>
+    <Background>
+      <Card>
+        <form>
+          <ContainerInput>
 
-  const login = useSelector((state) => state.login);
-  const dispatch = useDispatch();
+            <Title>Entrar</Title>
 
-  return (
-    <Container>
-      <Input type="email" onChange={(event) => setEmail(event.target.value)} value={email} placeholder="Email" />
-      <Input type="password" onChange={(event) => setPassword(event.target.value)} value={password} placeholder="Password" />
+            <ContainerSpace>
+              <Input type="email" placeholder="Email ou número de telefone" />
+            </ContainerSpace>
+            <ContainerSpace>
+              <Input type="password" placeholder="Senha" />
+            </ContainerSpace>
+            <Button>Entrar</Button>
 
-      <Button
-        circular
-        primary
-        disabled={!email || !password}
-        onClick={() => { dispatch(loginAction({ email, password })); }}
-      >
-        LOGIN
-      </Button>
-      <Button
-        circular
-        primary
-        onClick={() => { dispatch(logoutAction('Logged out')); }}
-      >
-        LOGOUT
-      </Button>
+            <ContainerRemember>
+              <span>
+                <Checkbox label="Lembre-se de mim" />
+              </span>
+              <span><Link to="/needhelp" underline>Precisa de Ajuda</Link></span>
+            </ContainerRemember>
 
-      <Rotate>
-        {' '}
-        <div>{login}</div>
-      </Rotate>
-    </Container>
-  );
-};
+            <FooterCard>
+              <ContainerCardFooter>
+                <InsideFooter>
+                  <Link to="/facebook">
+                    <Icon color="white" size="large" name="facebook" />
+                    Conectar com Facebook
+                  </Link>
+                </InsideFooter>
+
+                <InsideFooter>
+                  Novo por aqui? Assine agora.
+                </InsideFooter>
+
+                <InsideFooter>
+                  Esta página é protegida pelo Google reCAPTCHA para garantir
+                  que você não é um robô. Saiba mais.
+                </InsideFooter>
+
+              </ContainerCardFooter>
+            </FooterCard>
+
+          </ContainerInput>
+        </form>
+      </Card>
+    </Background>
+  </Container>
+);
 
 export default Login;
