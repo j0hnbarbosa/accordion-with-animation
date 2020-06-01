@@ -1,72 +1,40 @@
 import React from 'react';
+import CardCompoent from '../card';
 import {
-  Background,
-  Button,
-  Card,
-  Checkbox,
   Container,
-  ContainerInput,
-  ContainerRemember,
-  ContainerSpace,
-  FooterCard,
-  Input,
-  Link,
-  Title,
-  Icon,
-  ContainerCardFooter,
-  InsideFooter,
+  Background,
+  FooterPage,
+  FooterContent,
+  FooterContentList,
+  FooterItem,
 } from './styles';
 
 const Login = () => (
-  <Container>
-    <Background>
-      <Card>
-        <form>
-          <ContainerInput>
+  <>
+    <Container>
+      <Background>
 
-            <Title>Entrar</Title>
+        <CardCompoent />
 
-            <ContainerSpace>
-              <Input type="email" placeholder="Email ou número de telefone" />
-            </ContainerSpace>
-            <ContainerSpace>
-              <Input type="password" placeholder="Senha" />
-            </ContainerSpace>
-            <Button>Entrar</Button>
+      </Background>
 
-            <ContainerRemember>
-              <span>
-                <Checkbox label="Lembre-se de mim" />
-              </span>
-              <span><Link to="/needhelp" underline>Precisa de Ajuda</Link></span>
-            </ContainerRemember>
+      <FooterPage>
+        <FooterContent>
+          <FooterContentList>
+            Dúvidas? Ligue:
+            {' '}
+            <FooterItem>0800-761-4631</FooterItem>
+          </FooterContentList>
+          <FooterContentList>
+            <FooterItem>Termos dos Cartões pré-pagos</FooterItem>
+            <FooterItem>Termos de uso</FooterItem>
+            <FooterItem>Declaração de privacidade</FooterItem>
+          </FooterContentList>
+        </FooterContent>
+      </FooterPage>
 
-            <FooterCard>
-              <ContainerCardFooter>
-                <InsideFooter>
-                  <Link to="/facebook">
-                    <Icon color="white" size="large" name="facebook" />
-                    Conectar com Facebook
-                  </Link>
-                </InsideFooter>
-
-                <InsideFooter>
-                  Novo por aqui? Assine agora.
-                </InsideFooter>
-
-                <InsideFooter>
-                  Esta página é protegida pelo Google reCAPTCHA para garantir
-                  que você não é um robô. Saiba mais.
-                </InsideFooter>
-
-              </ContainerCardFooter>
-            </FooterCard>
-
-          </ContainerInput>
-        </form>
-      </Card>
-    </Background>
-  </Container>
+    </Container>
+  </>
 );
 
 export default Login;
