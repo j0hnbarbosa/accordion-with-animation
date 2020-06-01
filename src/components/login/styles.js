@@ -23,13 +23,13 @@ const Background = styled.div`
 const FooterPage = styled.div`
   height: 180px;
   width: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.85);
 `;
 
 const FooterContent = styled.div`
   width: 800px;
   margin: 0 auto;
-  color: #B3B3B3;
+  color: #757575;
 `;
 
 const FooterContentList = styled.div`
@@ -37,8 +37,15 @@ const FooterContentList = styled.div`
   margin: 15px 0px;
 `;
 
+const FooterContentOne = styled.div`
+  display: flex;
+  font-size: 18px;
+  margin: 15px 0px;
+`;
+
 const FooterItem = styled.div`
   margin-right: 70px;
+  word-wrap: break-word;
   &:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -52,4 +59,5 @@ export {
   FooterContent,
   FooterContentList,
   FooterItem,
+  FooterContentOne,
 };

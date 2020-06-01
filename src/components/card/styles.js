@@ -58,7 +58,7 @@ const Button = styled(ButtonSemantic)`
     min-height: 50px;
   }
 
-  &.ui.button:active {
+  &.ui.button:focus {
     border: none;
     border: 1px solid #FFF;
     height: 49px;

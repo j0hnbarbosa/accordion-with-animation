@@ -7,6 +7,7 @@ import {
   FooterContent,
   FooterContentList,
   FooterItem,
+  FooterContentOne,
 } from './styles';
 
 const Login = () => (
@@ -20,11 +21,11 @@ const Login = () => (
 
       <FooterPage>
         <FooterContent>
-          <FooterContentList>
+          <FooterContentOne>
             Dúvidas? Ligue:
             {' '}
             <FooterItem>0800-761-4631</FooterItem>
-          </FooterContentList>
+          </FooterContentOne>
           <FooterContentList>
             <FooterItem>Termos dos Cartões pré-pagos</FooterItem>
             <FooterItem>Termos de uso</FooterItem>
