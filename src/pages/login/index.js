@@ -1,5 +1,6 @@
 import React from 'react';
-import CardCompoent from '../card';
+import CardCompoent from '../../components/card';
+
 import {
   Container,
   Background,
@@ -37,5 +38,6 @@ const Login = () => (
     </Container>
   </>
 );
+
 
 export default Login;
