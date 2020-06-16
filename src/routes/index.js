@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Login from '../pages/login';
 import ShowItems from '../pages/showItems';
+import Subscribe from '../pages/subscribe';
 
 const PrivateRoutes = ({
   component: Component, isAutheticated, token, ...rest
@@ -33,6 +34,7 @@ const Routes = (props) => (
     <Switch>
       <Route path={['/', 'login']} exact component={Login} />
       <PrivateRoutes path="/showitems" exact component={ShowItems} {...props} />
+      <Route path="/subscribe" exact component={Subscribe} />
     </Switch>
   </BrowserRouter>
 );
