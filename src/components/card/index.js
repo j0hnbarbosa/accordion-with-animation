@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
+import { loginAction } from '../../redux/actions';
+
 import {
   Button,
   Card,
@@ -16,54 +21,87 @@ import {
   TextColor,
 } from './styles';
 
-const CardComponent = () => (
-  <Card>
-    <form>
-      <ContainerInput>
+const CardComponent = (props) => {
+  const { signin, isAutheticated } = props;
+  const history = useHistory();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-        <Title>Entrar</Title>
+  if (isAutheticated) { history.push('/showitems'); }
 
-        <ContainerSpace>
-          <Input type="email" placeholder="Email ou número de telefone" />
-        </ContainerSpace>
-        <ContainerSpace>
-          <Input type="password" placeholder="Senha" />
-        </ContainerSpace>
-        <Button>Entrar</Button>
+  return (
+    <Card>
+      <form>
+        <ContainerInput>
 
-        <ContainerRemember>
-          <span>
-            <Checkbox label="Lembre-se de mim" />
-          </span>
-          <span><Link to="/needhelp" underline>Precisa de Ajuda</Link></span>
-        </ContainerRemember>
+          <Title>Entrar</Title>
 
-        <FooterCard>
-          <ContainerCardFooter>
-            <InsideFooter>
-              <Link to="/facebook">
-                <Icon color="white" size="large" name="facebook" />
-                Conectar com Facebook
-              </Link>
-            </InsideFooter>
+          <ContainerSpace>
+            <Input type="email" onChange={(event) => setUsername(event.target.value)} value={username} placeholder="Email ou número de telefone" />
+          </ContainerSpace>
+          <ContainerSpace>
+            <Input type="password" onChange={(event) => setPassword(event.target.value)} value={password} placeholder="Senha" />
+          </ContainerSpace>
+          <Button onClick={(event) => {
+            event.preventDefault();
+            signin({ username, password });
+          }}
+          >
+            Entrar
+          </Button>
 
-            <InsideFooter>
-              <TextColor>Novo por aqui?</TextColor>
-              {' '}
-              <Link to="subscribe" white underline size="20px">Assine agora.</Link>
-            </InsideFooter>
+          <ContainerRemember>
+            <span>
+              <Checkbox label="Lembre-se de mim" />
+            </span>
+            <span><Link to="/needhelp" underline>Precisa de Ajuda</Link></span>
+          </ContainerRemember>
 
-            <InsideFooter>
-              Esta página é protegida pelo Google reCAPTCHA para garantir
-              que você não é um robô. Saiba mais.
-            </InsideFooter>
+          <FooterCard>
+            <ContainerCardFooter>
+              <InsideFooter>
+                <Link to="/facebook">
+                  <Icon color="white" size="large" name="facebook" />
+                  Conectar com Facebook
+                </Link>
+              </InsideFooter>
 
-          </ContainerCardFooter>
-        </FooterCard>
+              <InsideFooter>
+                <TextColor>Novo por aqui?</TextColor>
+                {' '}
+                <Link to="subscribe" white underline size="20px">Assine agora.</Link>
+              </InsideFooter>
 
-      </ContainerInput>
-    </form>
-  </Card>
+              <InsideFooter>
+                Esta página é protegida pelo Google reCAPTCHA para garantir
+                que você não é um robô. Saiba mais.
+              </InsideFooter>
+
+            </ContainerCardFooter>
+          </FooterCard>
+
+        </ContainerInput>
+      </form>
+    </Card>
+  );
+};
+
+CardComponent.propTypes = {
+  signin: PropTypes.func.isRequired,
+  isAutheticated: PropTypes.bool.isRequired,
+};
+
+const mapDispatchProps = (dispatch) => (
+  {
+    signin: (param) => dispatch(loginAction(param)),
+  }
 );
 
-export default CardComponent;
+const mapStatetoProps = (state) => {
+  const { isAutheticated } = state.authetication;
+  return ({
+    isAutheticated,
+  });
+};
+
+export default connect(mapStatetoProps, mapDispatchProps)(CardComponent);
