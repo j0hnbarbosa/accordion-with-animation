@@ -16,8 +16,9 @@ const FieldDatapicker = ({ setFieldValue, ...props }) => {
       onChange={(e, data) => {
         const { value } = data;
         // eslint-disable-next-line no-console
-        console.log(new Date(moment(value).format('YYYY-MM-DD')));
-        setFieldValue(props.name, moment(value).format('YYYY-MM-DD'), true);
+        console.log(value);
+
+        setFieldValue(props.name, value ? moment(value).format('YYYY-MM-DD') : '', true);
       }}
     />
   );
