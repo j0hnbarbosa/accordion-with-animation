@@ -11,4 +11,7 @@ export const subscribeValidate = Yup.object({
   groupRadio: Yup.string()
     .required('required'),
 
+  birthday: Yup.string()
+    .required('required'),
+
 });
