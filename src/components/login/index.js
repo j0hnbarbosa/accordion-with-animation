@@ -1,44 +1,41 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginAction, logoutAction } from '../../redux/actions';
+import React from 'react';
+import CardCompoent from '../card';
 import {
-  Container, Input, Button, Rotate,
+  Container,
+  Background,
+  FooterPage,
+  FooterContent,
+  FooterContentList,
+  FooterItem,
+  FooterContentOne,
 } from './styles';
 
-const Login = () => {
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-
-  const login = useSelector((state) => state.login);
-  const dispatch = useDispatch();
-
-  return (
+const Login = () => (
+  <>
     <Container>
-      <Input type="email" onChange={(event) => setEmail(event.target.value)} value={email} placeholder="Email" />
-      <Input type="password" onChange={(event) => setPassword(event.target.value)} value={password} placeholder="Password" />
+      <Background>
 
-      <Button
-        circular
-        primary
-        disabled={!email || !password}
-        onClick={() => { dispatch(loginAction({ email, password })); }}
-      >
-        LOGIN
-      </Button>
-      <Button
-        circular
-        primary
-        onClick={() => { dispatch(logoutAction('Logged out')); }}
-      >
-        LOGOUT
-      </Button>
+        <CardCompoent />
 
-      <Rotate>
-        {' '}
-        <div>{login}</div>
-      </Rotate>
+      </Background>
+
+      <FooterPage>
+        <FooterContent>
+          <FooterContentOne>
+            Dúvidas? Ligue:
+            {' '}
+            <FooterItem>0800-761-4631</FooterItem>
+          </FooterContentOne>
+          <FooterContentList>
+            <FooterItem>Termos dos Cartões pré-pagos</FooterItem>
+            <FooterItem>Termos de uso</FooterItem>
+            <FooterItem>Declaração de privacidade</FooterItem>
+          </FooterContentList>
+        </FooterContent>
+      </FooterPage>
+
     </Container>
-  );
-};
+  </>
+);
 
 export default Login;
