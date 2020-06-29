@@ -6,7 +6,7 @@ import {
   Formik, Form, ErrorMessage, Field,
 } from 'formik';
 import { subscribeValidate } from '../../validadeSchema';
-import { ContainerRadio } from './styles';
+import { ContainerRadio, Checkbox } from './styles';
 import FieldDatepicker from '../../components/fieldDatepicker';
 import FieldInput from '../../components/fieldInput';
 
@@ -82,6 +82,11 @@ const Subscribe = () => {
                   <Grid.Row>
                     <Grid.Column>
                       <FieldDatepicker setFieldValue={setFieldValue} name="birthday" />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Checkbox setFieldValue={setFieldValue} name="status" toggle label="done" />
                     </Grid.Column>
                   </Grid.Row>
                   <Grid.Row>
