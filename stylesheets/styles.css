@@ -1,0 +1,62 @@
+html body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.btn-slide {
+  padding: 8px 6px;
+}
+.btn-slide:hover {
+  cursor: pointer;
+}
+
+ul {
+  padding-left: 6px;
+}
+
+li {
+  list-style-type: none;
+}
+li:hover {
+  cursor: pointer;
+}
+
+.container-accordion {
+  overflow: hidden;
+  padding: 10px;
+}
+
+.container-btn-accordion {
+  overflow: hidden;
+}
+
+.accordion {
+  height: 0px;
+  width: 200px;
+  overflow: hidden;
+  outline: 1px solid red;
+  transition: height 450ms linear;
+  position: relative;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */
