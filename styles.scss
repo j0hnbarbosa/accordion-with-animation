@@ -27,6 +27,7 @@ body {
 
 ul {
   padding-left: 6px;
+  text-align: center;
 }
 
 li {
@@ -38,7 +39,6 @@ li {
 }
 
 .container-accordion {
-  overflow: hidden;
   padding: 10px;
 }
 
@@ -46,19 +46,28 @@ li {
   overflow: hidden;
 }
 
-.accordion {
-  height: 0px;
-  width: 200px;
-  
-  overflow: hidden;
-  outline: 1px solid red;
-  transition: height 450ms linear;
-  position: relative;
-}
-
 .horizontal {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  flex-wrap: wrap;
+}
 
+.accordion-content {
+  height: 0px;
+  transform: translateY(-100%);
+
+  width: 200px;
+
+  overflow-y: hidden;
+  border: 1px solid red;
+  transition: height 400ms linear, transform 350ms;
+}
+
+.open {
+  transform: translateY(0);
+}
+
+.position-accordion {
+  overflow-y: hidden;
 }
